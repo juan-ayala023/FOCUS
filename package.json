@@ -1,0 +1,11 @@
+{
+  "name": "focus",
+  "private": true,
+  "description": "Raíz del repo. El sitio vive en focus-web/; estos scripts solo delegan allí para que npm run dev funcione desde cualquiera de las dos carpetas.",
+  "scripts": {
+    "dev": "npm --prefix focus-web run dev --",
+    "build": "npm --prefix focus-web run build --",
+    "preview": "npm --prefix focus-web run preview --",
+    "install:web": "npm --prefix focus-web install"
+  }
+}

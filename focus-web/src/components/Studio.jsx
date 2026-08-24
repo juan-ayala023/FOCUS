@@ -1,0 +1,77 @@
+import { useSite } from '../hooks/useSite'
+import Reveal from './Reveal'
+import Stat from './Stat'
+
+export default function Studio() {
+  const { brand, manifesto, stats } = useSite()
+
+  return (
+    <section id="estudio" className="section overflow-hidden bg-gradient-claro">
+      <div className="container">
+        <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+          {/* Retrato */}
+          <Reveal className="order-2 lg:order-1">
+            <div className="relative">
+              <div className="absolute -inset-4 -z-10 bg-gradient-radial opacity-70 blur-2xl" />
+              <img
+                src="/images/portrait.jpg"
+                alt={`Estudio ${brand.name} en ${brand.city}, ${brand.region}`}
+                loading="lazy"
+                className="aspect-[4/5] w-full border border-borde object-cover shadow-suave"
+              />
+              <div className="absolute -bottom-6 -right-4 border border-borde bg-papel/90 px-6 py-5 backdrop-blur-sm sm:-right-6">
+                <p className="font-display text-3xl font-light text-tinta-fuerte">
+                  {brand.city}
+                </p>
+                <p className="mt-1 text-[0.65rem] uppercase tracking-widest text-tinta-tenue">
+                  {brand.region} · Colombia
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Manifiesto */}
+          <div className="order-1 lg:order-2">
+            <Reveal>
+              <p className="eyebrow mb-6 flex items-center gap-4">
+                <span className="h-px w-10 bg-tinta-tenue" />
+                {manifesto.eyebrow}
+              </p>
+              <h2 className="font-display text-4xl font-light leading-[1.1] text-tinta-fuerte sm:text-5xl">
+                {manifesto.title}
+              </h2>
+              <p className="mt-7 text-base font-light leading-relaxed text-tinta-suave">
+                {manifesto.intro}
+              </p>
+            </Reveal>
+
+            <div className="mt-12 space-y-10">
+              {manifesto.pillars.map((pillar, i) => (
+                <Reveal key={pillar.label} delay={120 + i * 120}>
+                  <div className="border-l border-borde pl-6">
+                    <h3 className="mb-3 text-[0.68rem] font-medium uppercase tracking-widest text-tinta">
+                      {pillar.label}
+                    </h3>
+                    <p className="text-sm font-light leading-relaxed text-tinta-suave">
+                      {pillar.text}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Cifras */}
+        <Reveal className="mt-24 md:mt-32">
+          <div className="hairline mb-12" />
+          <dl className="grid grid-cols-2 gap-10 md:grid-cols-4">
+            {stats.map((stat) => (
+              <Stat key={stat.label} value={stat.value} label={stat.label} />
+            ))}
+          </dl>
+        </Reveal>
+      </div>
+    </section>
+  )
+}

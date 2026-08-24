@@ -1,0 +1,14 @@
+# Dependencias y builds — nunca deben llegar al repo
+node_modules/
+dist/
+.vercel/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Entornos locales
+.env
+.env.*.local
+*.local

@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  * {
+    @apply border-borde;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-papel font-sans text-tinta antialiased;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    @apply bg-onyx text-papel;
+  }
+
+  /* Scrollbar en plata sobre crema */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-papel-hueso;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-plata;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-tinta-tenue;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-tinta;
+  }
+}
+
+@layer components {
+  /* Texto con degradado grafito — el acento visual de la marca */
+  .text-grafito-gradient {
+    @apply bg-gradient-grafito bg-clip-text text-transparent;
+    background-size: 200% 200%;
+  }
+
+  /* Etiqueta pequeña en versalitas que precede a cada título */
+  .eyebrow {
+    @apply text-[0.68rem] font-medium uppercase tracking-widest text-tinta-tenue;
+  }
+
+  .section {
+    @apply relative px-0 py-20 md:py-24;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-borde to-transparent;
+  }
+
+  /* ── Botones ──────────────────────────────────────────────
+     Los dos comparten el barrido de luz plateada: un reflejo
+     diagonal que cruza el botón al pasar el cursor.           */
+  .btn-base {
+    @apply relative inline-flex items-center justify-center gap-3 overflow-hidden
+           px-9 py-4 text-xs uppercase tracking-widest
+           transition-all duration-500 ease-smooth;
+  }
+
+  .btn-base::after {
+    content: '';
+    @apply pointer-events-none absolute inset-y-0 -left-1/2 w-1/2
+           bg-gradient-to-r from-transparent via-papel/45 to-transparent;
+    transform: translateX(-120%) skewX(-20deg);
+  }
+
+  .btn-base:hover::after {
+    animation: btnShine 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @keyframes btnShine {
+    from {
+      transform: translateX(-120%) skewX(-20deg);
+    }
+    to {
+      transform: translateX(220%) skewX(-20deg);
+    }
+  }
+
+  .btn-onyx {
+    @apply btn-base bg-onyx text-papel hover:-translate-y-0.5 hover:bg-tinta hover:shadow-realce;
+  }
+
+  .btn-linea {
+    @apply btn-base border border-tinta-tenue/45 text-tinta
+           hover:-translate-y-0.5 hover:border-tinta-fuerte hover:text-tinta-fuerte;
+  }
+}
+
+@layer utilities {
+  .animation-delay-100 {
+    animation-delay: 0.1s;
+  }
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+  .animation-delay-300 {
+    animation-delay: 0.3s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

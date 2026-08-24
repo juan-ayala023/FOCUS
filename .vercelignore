@@ -1,0 +1,7 @@
+# Solo aplica cuando se despliega con el CLI (`vercel`).
+# Los originales pesan ~10 MB y no se publican: la web usa
+# focus-web/public/images/unas/, que ya está optimizado.
+fotos-originales/
+
+node_modules/
+focus-web/node_modules/

@@ -27,8 +27,8 @@ export const brand = {
   mapa: 'La Unión, Antioquia, Colombia',
   // Nivel de zoom: 14 abarca el pueblo; con dirección exacta, sube a 17.
   mapaZoom: 14,
-  // TODO: número real de WhatsApp en formato internacional, sin + ni espacios
-  whatsapp: '573000000000',
+  // Formato internacional, sin + ni espacios: 57 (Colombia) + 3147396048
+  whatsapp: '573147396048',
   instagramHandle: '@focus_beautystudio', // TODO: handle real
   instagramUrl: 'https://instagram.com/focus_beautystudio', // TODO
   // TODO: correo real

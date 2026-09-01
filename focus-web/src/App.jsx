@@ -9,7 +9,7 @@ import Studio from './components/Studio'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import WhatsAppFab from './components/WhatsAppFab'
+import BotonesFlotantes from './components/BotonesFlotantes'
 
 export default function App() {
   return (
@@ -36,7 +36,7 @@ export default function App() {
       </main>
 
       <Footer />
-      <WhatsAppFab />
+      <BotonesFlotantes />
     </>
   )
 }

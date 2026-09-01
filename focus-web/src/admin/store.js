@@ -24,7 +24,7 @@ import { gallery } from '../data/gallery'
 // ─────────────────────────────────────────────────────────────
 
 const CLAVE = 'focus:contenido'
-const VERSION = 5 // súbelo si cambia la forma de los datos: descarta lo guardado
+const VERSION = 6 // súbelo si cambia la forma de los datos: descarta lo guardado
 
 /** Copia profunda sin referencias compartidas con los valores por defecto. */
 const clonar = (v) => JSON.parse(JSON.stringify(v))

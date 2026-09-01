@@ -119,7 +119,7 @@ export const services = [
       'Editorial',
       'Artístico',
     ],
-    image: '/images/portrait.jpg', // TODO: foto real de maquillaje
+    image: '/images/galeria/grados-ahumado-calido.jpg', // trabajo real del estudio
   },
   {
     id: 'pestanas-cejas',
@@ -145,6 +145,7 @@ export const galleryFilters = [
   { id: 'todo', label: 'Todo' },
   { id: 'unas', label: 'Uñas' },
   { id: 'peinados', label: 'Peinados' },
+  { id: 'maquillaje', label: 'Maquillaje' },
 ]
 
 // ─── Misión / Visión / Quiénes somos ──────────────────────────

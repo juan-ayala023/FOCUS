@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Marquee from './components/Marquee'
 import Services from './components/Services'
+import Grados from './components/Grados'
 import Gallery from './components/Gallery'
 import Studio from './components/Studio'
 import Testimonials from './components/Testimonials'
@@ -27,6 +28,7 @@ export default function App() {
         <Hero />
         <Marquee />
         <Services />
+        <Grados />
         <Gallery />
         <Studio />
         <Testimonials />

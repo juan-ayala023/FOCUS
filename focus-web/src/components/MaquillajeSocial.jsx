@@ -3,7 +3,7 @@ import SmartImage from './SmartImage'
 import Reveal from './Reveal'
 
 /**
- * Franja de maquillaje de grados.
+ * Franja de maquillaje social.
  *
  * Es el único bloque oscuro de la página, y a propósito: las fotos están
  * tomadas sobre fondo negro en el estudio, así que aquí se funden con la
@@ -16,7 +16,7 @@ import Reveal from './Reveal'
  * La tira se desplaza en horizontal con scroll-snap: sin JavaScript, y en
  * el móvil se arrastra con el dedo como es natural.
  */
-export default function Grados() {
+export default function MaquillajeSocial() {
   const { gallery, whatsappLink } = useSite()
   const fotos = gallery.filter((f) => f.cat === 'maquillaje')
 
@@ -33,15 +33,15 @@ export default function Grados() {
       <div className="container">
         <Reveal className="max-w-2xl">
           <p className="text-[0.68rem] font-medium uppercase tracking-widest text-plata/60">
-            Maquillaje · Grados
+            Maquillaje · Social
           </p>
           <h2 className="mt-6 font-display text-4xl font-light leading-tight text-papel sm:text-5xl">
-            El día que te <span className="italic text-plata">gradúas</span>
+            Lista para la <span className="italic text-plata">ocasión</span>
           </h2>
           <p className="mt-6 max-w-xl text-base font-light leading-relaxed text-plata/70">
-            Un maquillaje pensado para el lente y para las horas que vienen
-            después: piel luminosa que no se apaga en las fotos, mirada
-            definida y un acabado que aguanta el día entero.
+            Cumpleaños, cenas, matrimonios, grados: cualquier plan que se salga
+            de lo cotidiano. Piel luminosa que no se apaga en las fotos, mirada
+            definida y un acabado que aguanta la noche entera.
           </p>
         </Reveal>
       </div>
@@ -74,12 +74,12 @@ export default function Grados() {
       <div className="container">
         <Reveal delay={250} className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
           <a
-            href={whatsappLink('Maquillaje de grados')}
+            href={whatsappLink('Maquillaje social')}
             target="_blank"
             rel="noreferrer"
             className="btn-base border border-plata/40 text-papel transition-all duration-500 ease-smooth hover:-translate-y-0.5 hover:border-plata hover:bg-papel hover:text-onyx"
           >
-            Agendar mi grado
+            Agendar mi cita
           </a>
           <a
             href="#galeria"

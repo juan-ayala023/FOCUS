@@ -119,7 +119,7 @@ export const services = [
       'Editorial',
       'Artístico',
     ],
-    image: '/images/galeria/grados-ahumado-calido.jpg', // trabajo real del estudio
+    image: '/images/galeria/social-ahumado-calido.jpg', // trabajo real del estudio
   },
   {
     id: 'pestanas-cejas',
@@ -182,7 +182,7 @@ export const testimonials = [
     quote:
       'Todo el mundo me admiró y di sus créditos como la responsable de la obra de arte. Hasta el profesor de artes preguntó qué técnica, que cómo hizo para ponerme esas facciones.',
     author: 'Mensaje de una clienta',
-    service: 'Maquillaje de grados',
+    service: 'Maquillaje',
   },
   {
     quote:

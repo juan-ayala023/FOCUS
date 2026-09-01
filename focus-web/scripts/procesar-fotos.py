@@ -56,21 +56,21 @@ MAPA = [
     ('peinado-recogido-mechas.jpeg',    'peinados', 'Recogido con rizos y mechas iluminadas'),
     ('peinado-cola-ondas.jpeg',         'peinados', 'Cola de caballo alta con ondas largas'),
 
-    # ── Maquillaje de grados ────────────────────────────────
-    ('grados-coral-luminoso.jpg',   'maquillaje', 'Maquillaje de grados en coral luminoso con labio nude'),
-    ('grados-ahumado-calido.jpg',   'maquillaje', 'Ahumado cálido con delineado marcado y labio terracota'),
-    ('grados-nude-rosado.jpg',      'maquillaje', 'Maquillaje nude rosado con cejas definidas'),
-    ('grados-bronce-glossy.jpg',    'maquillaje', 'Piel bronceada con sombra dorada y labio glossy'),
-    ('grados-labio-rojo.jpg',       'maquillaje', 'Delineado alado con labio rojo clásico'),
-    ('grados-glam-collar.jpg',      'maquillaje', 'Glam suave con rizos sueltos y piel luminosa'),
-    ('grados-verde-esmeralda.jpg',  'maquillaje', 'Sombra verde esmeralda con labio nude'),
-    ('grados-coral-durazno.jpg',    'maquillaje', 'Sombra coral durazno difuminada con labio marrón'),
-    ('grados-natural-rizos.jpg',    'maquillaje', 'Maquillaje natural luminoso con rizos'),
-    ('grados-marron-suave.jpg',     'maquillaje', 'Ahumado marrón suave con piel satinada'),
-    ('grados-ahumado-marron.jpg',   'maquillaje', 'Ahumado marrón con pestañas marcadas'),
-    ('grados-rosa-malva.jpg',       'maquillaje', 'Sombra rosa malva con labio rosado'),
-    ('grados-glam-neon.jpg',        'maquillaje', 'Glam de grados con piel luminosa y labio nude'),
-    ('grados-delineado-azul.jpg',   'maquillaje', 'Delineado azul con labio glossy'),
+    # ── Maquillaje social ───────────────────────────────────
+    ('social-coral-luminoso.jpg',   'maquillaje', 'Maquillaje social en coral luminoso con labio nude'),
+    ('social-ahumado-calido.jpg',   'maquillaje', 'Ahumado cálido con delineado marcado y labio terracota'),
+    ('social-nude-rosado.jpg',      'maquillaje', 'Maquillaje nude rosado con cejas definidas'),
+    ('social-bronce-glossy.jpg',    'maquillaje', 'Piel bronceada con sombra dorada y labio glossy'),
+    ('social-labio-rojo.jpg',       'maquillaje', 'Delineado alado con labio rojo clásico'),
+    ('social-glam-collar.jpg',      'maquillaje', 'Glam suave con rizos sueltos y piel luminosa'),
+    ('social-verde-esmeralda.jpg',  'maquillaje', 'Sombra verde esmeralda con labio nude'),
+    ('social-coral-durazno.jpg',    'maquillaje', 'Sombra coral durazno difuminada con labio marrón'),
+    ('social-natural-rizos.jpg',    'maquillaje', 'Maquillaje social natural luminoso con rizos'),
+    ('social-marron-suave.jpg',     'maquillaje', 'Ahumado marrón suave con piel satinada'),
+    ('social-ahumado-marron.jpg',   'maquillaje', 'Ahumado marrón con pestañas marcadas'),
+    ('social-rosa-malva.jpg',       'maquillaje', 'Sombra rosa malva con labio rosado'),
+    ('social-glam-neon.jpg',        'maquillaje', 'Glam social con piel luminosa y labio nude'),
+    ('social-delineado-azul.jpg',   'maquillaje', 'Delineado azul con labio glossy'),
 ]
 
 # Fotos del estudio en sí (la propietaria trabajando). No son galería:

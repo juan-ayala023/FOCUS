@@ -4,15 +4,30 @@ import Reveal from './Reveal'
 import SmartImage from './SmartImage'
 import Lightbox from './Lightbox'
 
+// Fotos por tanda en la retícula
+const POR_TANDA = 12
+
 export default function Gallery() {
   const { brand, galleryFilters, gallery } = useSite()
   const [filtro, setFiltro] = useState('todo')
   const [abierta, setAbierta] = useState(null)
+  const [tope, setTope] = useState(POR_TANDA)
 
   const fotos = useMemo(
     () => (filtro === 'todo' ? gallery : gallery.filter((f) => f.cat === filtro)),
     [filtro, gallery],
   )
+
+  // Solo se pintan las primeras; el resto llega por tandas. Con 38 fotos
+  // y subiendo, volcarlas todas de golpe satura la vista y el navegador.
+  const visibles = fotos.slice(0, tope)
+  const faltan = fotos.length - visibles.length
+
+  // Cambiar de filtro vuelve a empezar por la primera tanda
+  const cambiarFiltro = (id) => {
+    setFiltro(id)
+    setTope(POR_TANDA)
+  }
 
   return (
     <section id="galeria" className="section bg-papel-puro">
@@ -27,7 +42,7 @@ export default function Gallery() {
               Trabajos <span className="italic text-tinta">recientes</span>
             </h2>
             <p className="mt-5 text-sm font-light leading-relaxed text-tinta-suave">
-              Uñas y peinados hechos en el estudio. Toca cualquiera para verla en grande.
+              Uñas, peinados y maquillaje hechos en el estudio. Toca cualquiera para verla en grande.
             </p>
           </div>
           <a
@@ -62,7 +77,7 @@ export default function Gallery() {
                   type="button"
                   role="tab"
                   aria-selected={activo}
-                  onClick={() => setFiltro(f.id)}
+                  onClick={() => cambiarFiltro(f.id)}
                   className={[
                     'group relative overflow-hidden border px-5 py-2.5 text-xs uppercase tracking-widest transition-all duration-500 ease-smooth',
                     activo
@@ -85,7 +100,7 @@ export default function Gallery() {
 
         {/* Retícula tipo mosaico */}
         <div key={filtro} className="columns-2 gap-3 md:gap-5 lg:columns-3">
-          {fotos.map((foto, i) => (
+          {visibles.map((foto, i) => (
             <button
               key={foto.src}
               type="button"
@@ -121,11 +136,22 @@ export default function Gallery() {
             </button>
           ))}
         </div>
+
+        {faltan > 0 && (
+          <div className="mt-10 text-center">
+            <button type="button" onClick={() => setTope((t) => t + POR_TANDA)} className="btn-linea px-9 py-3.5">
+              Ver {Math.min(faltan, POR_TANDA)} fotos más
+              <span className="ml-1 text-tinta-tenue">({visibles.length} de {fotos.length})</span>
+            </button>
+          </div>
+        )}
       </div>
 
       {abierta !== null && (
+        // El visor recorre solo lo que está en pantalla: si mostrara fotos
+        // que no están en la retícula, al cerrarlo no se sabría dónde quedó.
         <Lightbox
-          photos={fotos}
+          photos={visibles}
           index={abierta}
           onClose={() => setAbierta(null)}
           onNavigate={setAbierta}

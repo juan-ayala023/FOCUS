@@ -78,6 +78,7 @@ MAPA = [
 # componentes, así que no entran en gallery.js.
 ESTUDIO_WEB = os.path.join(SRC, 'public', 'images', 'estudio')
 ESTUDIO = [
+    'estudio-mural-duena.jpg',
     'estudio-laura-bn.jpg',
     'estudio-maquillando.jpg',
     'estudio-detras-camara.jpg',

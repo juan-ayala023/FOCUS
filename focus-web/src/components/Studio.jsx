@@ -14,10 +14,10 @@ export default function Studio() {
             <div className="relative">
               <div className="absolute -inset-4 -z-10 bg-gradient-radial opacity-70 blur-2xl" />
               <picture>
-                <source srcSet="/images/estudio/estudio-laura-bn.webp" type="image/webp" />
+                <source srcSet="/images/estudio/estudio-mural-duena.webp" type="image/webp" />
                 <img
-                  src="/images/estudio/estudio-laura-bn.jpg"
-                  alt={`Laura, de ${brand.name}, maquillando a una clienta en el estudio`}
+                  src="/images/estudio/estudio-mural-duena.jpg"
+                  alt={`Mural de la dueña de ${brand.name} junto al letrero de neón «${brand.slogan}»`}
                   loading="lazy"
                   className="aspect-[4/5] w-full border border-borde object-cover shadow-suave"
                 />
@@ -33,8 +33,9 @@ export default function Studio() {
             </div>
 
             {/* Detrás de cámara: el trabajo en curso, no el resultado */}
-            <div className="mt-14 grid grid-cols-2 gap-4">
+            <div className="mt-14 grid grid-cols-3 gap-3">
               {[
+                ['estudio-laura-bn', 'Laura maquillando a una clienta en el estudio'],
                 ['estudio-maquillando', 'Laura aplicando maquillaje a una clienta en el estudio'],
                 ['estudio-detras-camara', 'Laura preparando a una clienta antes de su evento'],
               ].map(([nombre, texto]) => (

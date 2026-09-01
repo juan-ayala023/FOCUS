@@ -13,12 +13,15 @@ export default function Studio() {
           <Reveal className="order-2 lg:order-1">
             <div className="relative">
               <div className="absolute -inset-4 -z-10 bg-gradient-radial opacity-70 blur-2xl" />
-              <img
-                src="/images/portrait.jpg"
-                alt={`Estudio ${brand.name} en ${brand.city}, ${brand.region}`}
-                loading="lazy"
-                className="aspect-[4/5] w-full border border-borde object-cover shadow-suave"
-              />
+              <picture>
+                <source srcSet="/images/estudio/estudio-laura-bn.webp" type="image/webp" />
+                <img
+                  src="/images/estudio/estudio-laura-bn.jpg"
+                  alt={`Laura, de ${brand.name}, maquillando a una clienta en el estudio`}
+                  loading="lazy"
+                  className="aspect-[4/5] w-full border border-borde object-cover shadow-suave"
+                />
+              </picture>
               <div className="absolute -bottom-6 -right-4 border border-borde bg-papel/90 px-6 py-5 backdrop-blur-sm sm:-right-6">
                 <p className="font-display text-3xl font-light text-tinta-fuerte">
                   {brand.city}
@@ -27,6 +30,24 @@ export default function Studio() {
                   {brand.region} · Colombia
                 </p>
               </div>
+            </div>
+
+            {/* Detrás de cámara: el trabajo en curso, no el resultado */}
+            <div className="mt-14 grid grid-cols-2 gap-4">
+              {[
+                ['estudio-maquillando', 'Laura aplicando maquillaje a una clienta en el estudio'],
+                ['estudio-detras-camara', 'Laura preparando a una clienta antes de su evento'],
+              ].map(([nombre, texto]) => (
+                <picture key={nombre}>
+                  <source srcSet={`/images/estudio/${nombre}.webp`} type="image/webp" />
+                  <img
+                    src={`/images/estudio/${nombre}.jpg`}
+                    alt={texto}
+                    loading="lazy"
+                    className="aspect-[4/5] w-full border border-borde object-cover grayscale-[0.35] transition-[filter] duration-700 ease-smooth hover:grayscale-0"
+                  />
+                </picture>
+              ))}
             </div>
           </Reveal>
 

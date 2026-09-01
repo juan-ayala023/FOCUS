@@ -73,8 +73,36 @@ MAPA = [
     ('grados-delineado-azul.jpg',   'maquillaje', 'Delineado azul con labio glossy'),
 ]
 
+# Fotos del estudio en sí (la propietaria trabajando). No son galería:
+# van a public/images/estudio/ y se referencian por ruta desde los
+# componentes, así que no entran en gallery.js.
+ESTUDIO_WEB = os.path.join(SRC, 'public', 'images', 'estudio')
+ESTUDIO = [
+    'estudio-laura-bn.jpg',
+    'estudio-maquillando.jpg',
+    'estudio-detras-camara.jpg',
+]
+
 LADO = 1400
 os.makedirs(WEB, exist_ok=True)
+os.makedirs(ESTUDIO_WEB, exist_ok=True)
+
+for archivo in ESTUDIO:
+    ruta = os.path.join(ORIG, archivo)
+    if not os.path.exists(ruta):
+        print('FALTA', ruta)
+        continue
+    slug = os.path.splitext(archivo)[0]
+    im = ImageOps.exif_transpose(Image.open(ruta)).convert('RGB')
+    w, h = im.size
+    e = min(1.0, LADO / max(w, h))
+    if e < 1.0:
+        im = im.resize((round(w * e), round(h * e)), Image.LANCZOS)
+    im.save(os.path.join(ESTUDIO_WEB, f'{slug}.jpg'), quality=82, optimize=True, progressive=True)
+    im.save(os.path.join(ESTUDIO_WEB, f'{slug}.webp'), quality=80, method=6)
+    kb = lambda n: os.path.getsize(os.path.join(ESTUDIO_WEB, n)) // 1024
+    print(f'{slug:28s} {im.width}x{im.height}  jpg {kb(slug + ".jpg")}KB  webp {kb(slug + ".webp")}KB')
+
 
 salida = []
 for archivo, cat, alt in MAPA:

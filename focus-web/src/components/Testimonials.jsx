@@ -1,5 +1,6 @@
 import { useSite } from '../hooks/useSite'
 import Reveal from './Reveal'
+import MuroTestimonios from './MuroTestimonios'
 
 export default function Testimonials() {
   const { testimonials } = useSite()
@@ -37,6 +38,8 @@ export default function Testimonials() {
             </Reveal>
           ))}
         </div>
+
+        <MuroTestimonios />
       </div>
     </section>
   )

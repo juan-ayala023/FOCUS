@@ -175,23 +175,26 @@ export const stats = [
 ]
 
 export const testimonials = [
+  // Transcripciones reales de mensajes de clientas. Las capturas completas
+  // están en src/data/testimonios.js (generado). No inventar entradas aquí:
+  // si no hay mensaje real detrás, no va.
   {
     quote:
-      'Salí sintiéndome otra persona. El trabajo en uñas es impecable y el trato es de otro nivel.',
-    author: 'Valentina R.',
-    service: 'Acrygel',
-  },
-  {
-    quote:
-      'Me maquillaron para mi grado y no se me movió nada en todo el día. Quedé feliz con el resultado.',
-    author: 'Daniela M.',
+      'Todo el mundo me admiró y di sus créditos como la responsable de la obra de arte. Hasta el profesor de artes preguntó qué técnica, que cómo hizo para ponerme esas facciones.',
+    author: 'Mensaje de una clienta',
     service: 'Maquillaje de grados',
   },
   {
     quote:
-      'El diseño de cejas me cambió la cara. Entienden perfecto lo que uno quiere.',
-    author: 'Sara L.',
-    service: 'Cejas',
+      'La gente me lo halagó demasiado; en serio que me duró hasta el último segundo, antes casi no logro desmaquillarme de lo duradero que quedó.',
+    author: 'Mensaje de una clienta',
+    service: 'Maquillaje',
+  },
+  {
+    quote:
+      'Tu trabajo merece que lo conozca mucha gente y nunca dudaré de eso. Eres mi manicurista de confianza.',
+    author: 'Mensaje de una clienta',
+    service: 'Uñas',
   },
 ]
 

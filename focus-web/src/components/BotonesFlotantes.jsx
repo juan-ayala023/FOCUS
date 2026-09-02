@@ -5,10 +5,9 @@ import { useSite } from '../hooks/useSite'
  * Botones flotantes de contacto y redes.
  *
  * WhatsApp abajo —es la acción principal y la que queda más cerca del
- * pulgar—, y encima las redes. WhatsApp conserva su verde oficial porque
- * ya era la única excepción a la paleta y se reconoce al instante; las
- * redes van en onyx: meter aquí el degradado de Instagram y el cian de
- * TikTok sería añadir cinco colores más a una página de crema y grises.
+ * pulgar—, y encima las redes. Los tres comparten tamaño y color onyx:
+ * ni el verde de WhatsApp, ni el degradado de Instagram, ni el cian de
+ * TikTok —serían seis colores más en una página de crema y grises—.
  *
  * Cada red se pinta solo si tiene enlace configurado en site.js. Un botón
  * que no lleva a ninguna parte es peor que no tener botón.
@@ -50,7 +49,7 @@ export default function BotonesFlotantes() {
     return () => window.removeEventListener('scroll', alScroll)
   }, [])
 
-  const redes = [
+  const botones = [
     brand.instagramUrl && {
       id: 'instagram',
       href: brand.instagramUrl,
@@ -63,11 +62,18 @@ export default function BotonesFlotantes() {
       etiqueta: `${brand.name} en TikTok`,
       Icono: IconoTikTok,
     },
+    {
+      id: 'whatsapp',
+      href: whatsappLink(),
+      etiqueta: 'Agendar cita por WhatsApp',
+      Icono: IconoWhatsApp,
+      siempreVisible: true,
+    },
   ].filter(Boolean)
 
   return (
     <div className="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-3">
-      {redes.map(({ id, href, etiqueta, Icono }) => (
+      {botones.map(({ id, href, etiqueta, Icono, siempreVisible }) => (
         <a
           key={id}
           href={href}
@@ -76,30 +82,14 @@ export default function BotonesFlotantes() {
           aria-label={etiqueta}
           className={[
             'group flex h-12 w-12 items-center justify-center rounded-full bg-onyx shadow-realce transition-all duration-500 ease-smooth hover:-translate-y-1 hover:bg-tinta',
-            pasoElHero ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0',
+            siempreVisible || pasoElHero
+              ? 'translate-y-0 opacity-100'
+              : 'pointer-events-none translate-y-3 opacity-0',
           ].join(' ')}
         >
           <Icono className="h-[22px] w-[22px] text-papel" aria-hidden="true" />
         </a>
       ))}
-
-      <a
-        href={whatsappLink()}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Agendar cita por WhatsApp"
-        className="group relative flex h-16 w-16 items-center justify-center"
-      >
-        {/* pointer-events-none: al escalar a 1.75x el halo se vuelve invisible
-            pero seguiría capturando clics fuera del botón. */}
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 animate-halo rounded-full bg-whatsapp/50"
-        />
-        <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-whatsapp shadow-[0_12px_32px_-8px_rgba(37,211,102,.7)] ring-1 ring-black/5 transition-all duration-500 ease-smooth group-hover:-translate-y-1 group-hover:bg-whatsapp-oscuro group-hover:shadow-[0_18px_40px_-8px_rgba(37,211,102,.85)]">
-          <IconoWhatsApp className="h-8 w-8 text-white" aria-hidden="true" />
-        </span>
-      </a>
     </div>
   )
 }

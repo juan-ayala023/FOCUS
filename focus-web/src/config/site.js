@@ -31,9 +31,11 @@ export const brand = {
   whatsapp: '573147396048',
   instagramHandle: '@focus_beautystudio', // TODO: handle real
   instagramUrl: 'https://instagram.com/focus_beautystudio', // TODO
-  // TODO: usuario real de TikTok. Mientras esté vacío, el botón flotante
-  // de TikTok simplemente no aparece — mejor que un enlace a ninguna parte.
-  tiktokUrl: '',
+  // TODO: confirmar el usuario real de TikTok. Va con el mismo handle que
+  // Instagram por defecto; si el del estudio es otro, cámbialo aquí. Si se
+  // deja vacío, el botón flotante de TikTok no aparece — mejor eso que un
+  // enlace a ninguna parte.
+  tiktokUrl: 'https://www.tiktok.com/@focus_beautystudio',
   // TODO: correo real
   email: 'hola@focusbeauty.co',
   hours: [

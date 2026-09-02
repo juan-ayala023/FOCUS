@@ -7,6 +7,34 @@ import Lightbox from './Lightbox'
 // Fotos por tanda en la retícula
 const POR_TANDA = 12
 
+/**
+ * Orden de la pestaña «Todo».
+ *
+ * En src/data/gallery.js las fotos van agrupadas por categoría —primero las
+ * de uñas, luego peinados, luego maquillaje—, así que la primera tanda salía
+ * entera de uñas y «Todo» no parecía todo.
+ *
+ * A cada foto se le calcula su posición relativa dentro de su categoría,
+ * (i + 0.5) / total, y se ordena por ella. Cada categoría queda repartida de
+ * punta a punta sin importar cuántas fotos tenga, y las primeras filas ya
+ * mezclan las tres. Es determinista a propósito: barajar de verdad cambiaría
+ * el orden en cada render y las fotos saltarían al pedir la siguiente tanda.
+ */
+const entrelazarPorCategoria = (fotos) => {
+  const totales = {}
+  for (const foto of fotos) totales[foto.cat] = (totales[foto.cat] ?? 0) + 1
+
+  const vistas = {}
+  return fotos
+    .map((foto) => {
+      const i = vistas[foto.cat] ?? 0
+      vistas[foto.cat] = i + 1
+      return { foto, posicion: (i + 0.5) / totales[foto.cat] }
+    })
+    .sort((a, b) => a.posicion - b.posicion)
+    .map(({ foto }) => foto)
+}
+
 export default function Gallery() {
   const { brand, galleryFilters, gallery } = useSite()
   const [filtro, setFiltro] = useState('todo')
@@ -14,7 +42,10 @@ export default function Gallery() {
   const [tope, setTope] = useState(POR_TANDA)
 
   const fotos = useMemo(
-    () => (filtro === 'todo' ? gallery : gallery.filter((f) => f.cat === filtro)),
+    () =>
+      filtro === 'todo'
+        ? entrelazarPorCategoria(gallery)
+        : gallery.filter((f) => f.cat === filtro),
     [filtro, gallery],
   )
 
